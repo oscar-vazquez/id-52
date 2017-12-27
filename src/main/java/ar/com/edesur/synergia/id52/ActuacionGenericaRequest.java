@@ -48,6 +48,14 @@ public class ActuacionGenericaRequest {
     @ApiModelProperty(value="Comentarios que pueda añadir el ejecutivo.")
     private String descripcion;
 
+    @Override
+    public String toString() {
+        return "ActuacionGenericaRequest{" +
+                "numeroOrden='" + numeroOrden + '\'' +
+                ", numeroCasoSFDC=" + numeroCasoSFDC +
+                '}';
+    }
+
     public Integer getCodigoEmpresa() {
         return codigoEmpresa;
     }

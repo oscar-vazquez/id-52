@@ -12,33 +12,18 @@ import javax.ws.rs.core.Response;
 @Api(value = "/", description = "Servicio de procesamiento de actuación genérica")
 public class ActuacionGenericaService {
 
-    private static final Logger LOG = LoggerFactory.getLogger(ActuacionGenericaService.class);
-
-    @GET
-    @Path("/mock/request")
-    @Produces(MediaType.APPLICATION_JSON)
-    @ApiOperation(value = "mock request")
-    public Response createMockRequest() {
-        LOG.info("creando mock request ");
-        ActuacionGenericaRequest mock =  new ActuacionGenericaRequest();
-        return  Response.ok().entity(mock).build();
-    }
+    private static final Logger logger = LoggerFactory.getLogger(ActuacionGenericaService.class);
 
     @POST
     @Path("/")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    @ApiOperation(value = "procesar solicitud")
+    @ApiOperation(value = "procesar solicitud", response = ActuacionGenericaResponse.class)
     @ApiResponses(value = {
             @ApiResponse(code = 500, message = "request invalido")
     })
     public Response process(@ApiParam(value = "request", required = true) ActuacionGenericaRequest request) {
-        LOG.info("procesando orden: {}", request.getNumeroOrden());
-
-        ActuacionGenericaResponse mock =  new ActuacionGenericaResponse();
-        mock.setNumeroOrden(request.getNumeroOrden());
-
-//        return  Response.ok().entity(mock).build();
+        logger.info(request.toString());
         return null;
     }
 }
