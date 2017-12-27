@@ -25,7 +25,7 @@
     </bean>
 
 
-    <cxfrs:rsServer id="xx" address="/id-52" loggingFeatureEnabled="true">
+    <cxfrs:rsServer id="xx" address="/id-52" loggingFeatureEnabled="false">
         <cxfrs:serviceBeans>
             <ref component-id="actuacionGenericaService"/>
         </cxfrs:serviceBeans>
