@@ -13,8 +13,10 @@ public class ResponseGenerator implements Processor {
 
     @Override
     public void process(Exchange exchange) throws Exception {
-        ActuacionGenericaRequest request = exchange.getIn(ActuacionGenericaRequest.class);
-        logger.info("request {}", request.getNumeroCasoSFDC());
+        //ActuacionGenericaRequest request = exchange.getIn().getBody(ActuacionGenericaRequest.class)
+        logger.info("request {}",
+                exchange.getIn().getBody());
+                //request.getNumeroCasoSFDC());
         ActuacionGenericaResponse response = new ActuacionGenericaResponse();
         response.setCodigoResultado(UUID.randomUUID().toString());
         exchange.getOut().setBody(response);

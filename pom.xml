@@ -84,6 +84,8 @@
 
         <!-- the version of the JBoss Fuse BOM, defining all the dependency versions -->
         <jboss.fuse.bom.version>6.3.0.redhat-187</jboss.fuse.bom.version>
+
+        <camel.version>2.17.0.redhat-630187</camel.version>
     </properties>
 
     <dependencyManagement>
@@ -100,6 +102,11 @@
 
     <dependencies>
 
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-core</artifactId>
+            <version>${camel.version}</version>
+        </dependency>
         <dependency>
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-blueprint</artifactId>
@@ -119,16 +126,19 @@
         <dependency>
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-jackson</artifactId>
+            <version>${camel.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.cxf</groupId>
             <artifactId>cxf-rt-frontend-jaxws</artifactId>
             <version>${cxf.version}</version>
         </dependency>
+        <!--
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-core</artifactId>
         </dependency>
+
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
@@ -137,12 +147,15 @@
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-annotations</artifactId>
         </dependency>
+        -->
+        <!--
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.12</version>
             <scope>test</scope>
         </dependency>
+        -->
     <!--
         For coding the example, we don't actually depend on any CXF classes - we only use the JAX-RS (JSR-339)
         standard annotations and API
@@ -163,16 +176,19 @@
 
     <!-- Test Dependencies -->
 
+        <!--
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <scope>test</scope>
     </dependency>
+-->
 
     <!--
         We are also building a small Java client application that we can use to test our web web services.
         For performing the HTTP requests, we are using Apache Commons HttpClient.
     -->
+        <!--
     <dependency>
       <groupId>commons-httpclient</groupId>
       <artifactId>commons-httpclient</artifactId>
@@ -188,6 +204,7 @@
       <groupId>org.slf4j</groupId>
       <artifactId>jcl-over-slf4j</artifactId>
     </dependency>
+-->
 
     <!--
       Add the slf4j-log4j12 dependency jar for testing
