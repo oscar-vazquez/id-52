@@ -22,7 +22,8 @@ public class ActuacionGenericaService {
     @ApiResponses(value = {
             @ApiResponse(code = 500, message = "request invalido")
     })
-    public Response process(@ApiParam(value = "request", required = true) ActuacionGenericaRequest request) {
+//    public Response process(@ApiParam(value = "request", required = true) ActuacionGenericaRequest request) {
+    public Response process(ActuacionGenericaRequest request) {
         logger.info(request.toString());
         return null;
     }

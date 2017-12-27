@@ -24,6 +24,7 @@
         <property name="basePath" value="/cxf/id-52"/>
     </bean>
 
+
     <cxfrs:rsServer id="xx" address="/id-52" loggingFeatureEnabled="true">
         <cxfrs:serviceBeans>
             <ref component-id="actuacionGenericaService"/>
@@ -54,12 +55,25 @@
 
         <route id="r1">
             <from uri="cxfrs:bean:xx?bindingStyle=SimpleConsumer" />
+            <log message="${body}" />
             <marshal ref="request" />
             <to uri="activemq:actuacionGenerica?exchangePattern=InOnly" />
             <process ref="responseGenerator" />
-            <log message="${body}" />
         </route>
     </camelContext>
 
+
+    <!--
+<route id="CustomerRoute">
+                        <from uri="cxfrs://bean://GetCustomerService" />
+                        <setExchangePattern pattern="InOut" />
+                         <camel:bean ref="getMortgageAccountResquestProcessor"
+                                method="process" />
+                        <setHeader headerName="operationName">
+                                <constant>getCustomerDetails</constant>
+                        </setHeader>
+                        <to uri="cxf:bean:getOSBCustomerClient"/>
+                </route>
+    -->
 </blueprint>
 

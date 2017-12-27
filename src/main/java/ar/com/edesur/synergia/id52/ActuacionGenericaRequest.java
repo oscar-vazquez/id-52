@@ -5,7 +5,7 @@ import com.wordnik.swagger.annotations.ApiModelProperty;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
-@XmlRootElement
+//@XmlRootElement
 @ApiModel(value="ActuacionGenericaRequest")
 public class ActuacionGenericaRequest {
 
